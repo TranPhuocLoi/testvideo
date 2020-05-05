@@ -17,6 +17,16 @@
   </section>
 
   <script>
+    var promise = document.querySelector('video').play();
+
+    if (promise !== undefined) {
+      promise.catch(error => {
+        // Auto-play was prevented
+        // Show a UI element to let the user manually start playback
+      }).then(() => {
+        // Auto-play started
+      });
+    }
     var bgvideo = document.getElementById("banner-header");
     bgvideo.muted = true;
     bgvideo.play();
